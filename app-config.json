@@ -1,0 +1,68 @@
+{
+  "appName": "MyAwesomeWebApp",
+  "version": "2.5.1",
+  "environment": "production",
+  "logging": {
+    "level": "info",
+    "file": "/var/log/myapp/app.log",
+    "rotate": {
+      "enabled": true,
+      "maxSizeMB": 10,
+      "maxBackups": 5,
+      "compress": true
+    }
+  },
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8080,
+    "ssl": {
+      "enabled": true,
+      "certificateFile": "/etc/ssl/certs/myapp.crt",
+      "keyFile": "/etc/ssl/private/myapp.key"
+    }
+  },
+  "database": {
+    "type": "postgres",
+    "host": "db.myapp.com",
+    "port": 5432,
+    "username": "appuser",
+    "password": "supersecret",
+    "databaseName": "myapp_db",
+    "pool": {
+      "maxConnections": 20,
+      "minConnections": 5,
+      "idleTimeoutSeconds": 300
+    }
+  },
+  "features": {
+    "signup": true,
+    "betaAccess": false,
+    "analytics": true
+  },
+  "admins": [
+    {
+      "name": "Alice",
+      "email": "alice@example.com",
+      "roles": ["admin", "devops"]
+    },
+    {
+      "name": "Bob",
+      "email": "bob@example.com",
+      "roles": ["support"]
+    }
+  ],
+  "maintenanceMode": {
+    "enabled": false,
+    "message": "We are currently performing scheduled maintenance. Please try again later."
+  },
+  "thirdPartyAPIs": {
+    "stripe": {
+      "enabled": true,
+      "apiKey": "sk_live_************"
+    },
+    "sendGrid": {
+      "enabled": false,
+      "apiKey": null
+    }
+  }
+}
